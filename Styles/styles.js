@@ -40,6 +40,24 @@ const styles = StyleSheet.create({
       aspectRatio:1,
       backgroundColor:'gray',
       borderRadius:5
+    }, 
+    utils:{
+      display:"flex",
+      flexDirection:"row",
+      gap:10,
+      height:50,
+      justifyContent:"center",
+      alignItems:"center",
+      marginBottom:20,
+      backgroundColor:"transparent" 
+    },
+    input:{
+      borderWidth:2,
+      color:"blue",
+      width:400,
+      height:40,
+      borderRadius:20,
+      padding:20
     }
   });
   
