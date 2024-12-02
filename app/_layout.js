@@ -6,7 +6,7 @@ export default function RootLayout() {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <Stack
         screenOptions={{
-          headerShown: false,
+          headerShown: true,
           gestureDirection: 'vertical',
           animation: 'fade',
         }}
