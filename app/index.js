@@ -23,9 +23,12 @@ export default function App() {
           placeholder="Search"
           placeholderTextColor="#aaa"
         />
-        <Pressable>
-          <Text><Feather name="map" size={24} color="black" /></Text>
-        </Pressable>
+        <Link href='./map.js'>
+          <Pressable>
+            <Text><Feather name="map" size={24} color="black" /></Text>
+          </Pressable>
+        </Link>
+        
 
       </View>
       <ScrollView>
