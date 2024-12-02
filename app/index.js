@@ -1,13 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import {  View ,Image, FlatList,Text,ScrollView } from 'react-native';
-import { photos } from './data';
-import styles from './Styles/styles';
+import { photos } from '../data';
+import styles from '../Styles/styles';
 import { useWindowDimensions } from 'react-native';
-import Carousel from './Carousel';
+import Carousel from '../Carousel';
+import { Link } from 'expo-router';
+import { useState } from 'react';
 
 export default function App() {
   const {height,width}=useWindowDimensions()
-  
+
   return (
     <View style={styles.container}>
       <StatusBar 
@@ -17,7 +19,7 @@ export default function App() {
       
       <ScrollView>
       {/* Header */}
-      <ScrollView  horizontal style={styles.header} showsHorizontalScrollIndicator={false}>
+      <ScrollView  horizontal style={styles.header} showsHorizontalScrollIndicator={false} >
         {/* FLATLIST DATA RENDERS AN ARRAY DATA={} AND RENDERS ITEMS WITHIN THAT DATA */}
         <FlatList
           data={photos}
@@ -33,9 +35,16 @@ export default function App() {
         />
         <Image source={photos[0].image} style={{width,height:"100%"}} resizeMode="cover"/>
         <Image source={photos[1].image} style={{width,height:"100%"}} resizeMode="cover"/>
-        <Image source={photos[10].image} style={{width,height:"100%"}} resizeMode="cover"/>
-      
       </ScrollView>
+
+        <View style={styles.trackercontainer}>
+            {Array(3).fill(0).map((item, index) => (
+              <View key={index} style={styles.pagetracker} />
+            ))}
+        </View>
+
+        <Link href="./photo">Go To </Link>
+     
 
         <Carousel title="Albums" photos={photos.splice(0, 6)}/>
         <Carousel title="People" photos={photos.splice(3, 6)}/>

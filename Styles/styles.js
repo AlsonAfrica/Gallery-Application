@@ -27,6 +27,19 @@ const styles = StyleSheet.create({
     },
     carouselcontainer:{
       backgroundColor:"grey"
+    },
+    trackercontainer:{
+       padding:10,
+       justifyContent:'center',
+       flexDirection:'row',
+       alignItems:"center",
+       gap:5,
+    },
+    pagetracker:{
+      width:10,
+      aspectRatio:1,
+      backgroundColor:'gray',
+      borderRadius:5
     }
   });
   
