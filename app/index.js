@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import {  View ,Image, FlatList,Text,ScrollView } from 'react-native';
+import {  View ,Image, FlatList,Text,ScrollView, Pressable } from 'react-native';
 import { photos } from '../data';
 import styles from '../Styles/styles';
 import { useWindowDimensions } from 'react-native';
@@ -30,7 +30,12 @@ export default function App() {
           scrollEnabled={false}
           inverted
           renderItem={({ item }) => (
-            <Image source={item.image} style={{ width: `${100 / 4}%`, height: 100 }} />
+            <Link href={`/photo/${item.id}`} asChild>
+              <Pressable style={{ width: `${100 / 4}%`, height: 100 }}>
+                <Image source={item.image} style={{width:"100%",height:"100%"}} />
+              </Pressable>
+            </Link>
+            
           )}
         />
         <Image source={photos[0].image} style={{width,height:"100%"}} resizeMode="cover"/>
@@ -43,7 +48,6 @@ export default function App() {
             ))}
         </View>
 
-        <Link href="./photo">Go To </Link>
      
 
         <Carousel title="Albums" photos={photos.splice(0, 6)}/>
