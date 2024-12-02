@@ -17,10 +17,11 @@ export default function App() {
       
       <ScrollView>
       {/* Header */}
-      <View style={styles.header}>
+      <ScrollView  horizontal style={styles.header} showsHorizontalScrollIndicator={false}>
         {/* FLATLIST DATA RENDERS AN ARRAY DATA={} AND RENDERS ITEMS WITHIN THAT DATA */}
         <FlatList
           data={photos}
+          style={{width}}
           contentContainerStyle={{ gap: 5 }}
           columnWrapperStyle={{ gap: 4 }}
           numColumns={4}
@@ -30,11 +31,17 @@ export default function App() {
             <Image source={item.image} style={{ width: `${100 / 4}%`, height: 100 }} />
           )}
         />
-      </View>
+        <Image source={photos[0].image} style={{width,height:"100%"}} resizeMode="cover"/>
+        <Image source={photos[1].image} style={{width,height:"100%"}} resizeMode="cover"/>
+        <Image source={photos[10].image} style={{width,height:"100%"}} resizeMode="cover"/>
+      
+      </ScrollView>
 
-        <Carousel title="Albums" photos={photos.splice(0, 3)}/>
+        <Carousel title="Albums" photos={photos.splice(0, 6)}/>
         <Carousel title="People" photos={photos.splice(3, 6)}/>
         <Carousel title="Featured" photos={photos.splice(6, 9)}/>
+    
+
 
 
       </ScrollView>

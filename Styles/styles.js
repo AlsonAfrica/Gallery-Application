@@ -24,6 +24,9 @@ const styles = StyleSheet.create({
       width:250,
       height:150,
       borderRadius:20
+    },
+    carouselcontainer:{
+      backgroundColor:"grey"
     }
   });
   
