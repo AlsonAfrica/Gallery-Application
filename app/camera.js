@@ -3,6 +3,7 @@ import { useRef, useState } from 'react';
 import { Pressable, Dimensions, Image, Button, StyleSheet, Text, View, Platform } from 'react-native';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import * as Location from 'expo-location';
+import { photos } from '../data';
 
 export default function CameraScreen() {
   const [facing, setFacing] = useState('back');
