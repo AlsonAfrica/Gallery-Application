@@ -3,6 +3,7 @@ import { useRef, useState } from 'react';
 import { Pressable, Dimensions, Image, Button, StyleSheet, Text, View, Platform } from 'react-native';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import * as Location from 'expo-location';
+import { saveImage } from '../Database/sql';
 import { photos } from '../data';
 
 export default function CameraScreen() {
@@ -43,24 +44,39 @@ export default function CameraScreen() {
   const takePicture = async () => {
     try {
       console.log("Button pressed");
-      await getLocation();  // Fetch location when taking picture
-
+  
+      // Fetch location when taking a picture
+      await getLocation();
+  
+      // Capture picture
       const pic = await camera.current.takePictureAsync({
         base64: true,
         exif: false,
-        quality: 1
+        quality: 1,
       });
-      const currentTimestamp = new Date().toISOString();  // Get current timestamp
-      setTimestamp(currentTimestamp);  // Store timestamp
+  
+      // Get current timestamp
+      const currentTimestamp = new Date().toISOString();
+      setTimestamp(currentTimestamp);
       setPicture(pic);
-
+  
       console.log("Captured Picture:", pic);
       console.log("Timestamp:", currentTimestamp);
       console.log("Location:", location ? `Lat: ${location.latitude}, Long: ${location.longitude}` : 'Location not available');
+  
+      // Save image to the database
+      if (location) {
+        const { latitude, longitude } = location;
+        const result = await saveImage(pic.uri, latitude, longitude); // Assume `userId` is available
+        console.log("Image saved to database:", result);
+      } else {
+        console.warn("Location not available, image not saved.");
+      }
     } catch (error) {
       console.error("Failed to take picture:", error);
     }
   };
+  
 
   function toggleCameraFacing() {
     setFacing(current => (current === 'back' ? 'front' : 'back'));
