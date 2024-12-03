@@ -18,7 +18,8 @@ const styles = StyleSheet.create({
     },
     images:{
       gap:10,
-      paddingHorizontal:20
+      paddingHorizontal:20,
+      marginBottom:50
     } ,
     image:{
       width:250,
@@ -45,10 +46,10 @@ const styles = StyleSheet.create({
       display:"flex",
       flexDirection:"row",
       gap:10,
-      height:50,
+      height:40,
       justifyContent:"center",
       alignItems:"center",
-      marginBottom:20,
+      marginBottom:10,
       backgroundColor:"transparent" 
     },
     input:{
@@ -58,7 +59,31 @@ const styles = StyleSheet.create({
       height:40,
       borderRadius:20,
       padding:20
-    }
+    },
+    containercamera: {
+      flex: 1,
+      backgroundColor: '#fff', // For better visualization
+    },
+    camerabutton: {
+      position: 'absolute',
+      bottom: 50, // Distance from the bottom
+      right: 20,  // Distance from the right
+      backgroundColor: '#007AFF', // Button color
+      borderRadius: 30, // Makes the button circular
+      width: 60,
+      height: 60,
+      justifyContent: 'center',
+      alignItems: 'center',
+      elevation: 5, // For shadow on Android
+      shadowColor: '#000', // Shadow for iOS
+      shadowOffset: { width: 0, height: 2 }, // Shadow position
+      shadowOpacity: 0.3,
+      shadowRadius: 3,
+    },
+    buttonText: {
+      color: 'white', // Text color
+      fontWeight: 'bold',
+    },
   });
   
   export default styles;

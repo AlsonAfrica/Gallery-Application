@@ -6,10 +6,12 @@ import { useWindowDimensions } from 'react-native';
 import Carousel from '../Carousel';
 import { Link } from 'expo-router';
 import Feather from '@expo/vector-icons/Feather';
-import { useState } from 'react';
+import Entypo from '@expo/vector-icons/Entypo';
+
 
 export default function App() {
   const {width}=useWindowDimensions()
+
 
   return (
     <View style={styles.container}>
@@ -58,18 +60,32 @@ export default function App() {
           </View>
           <Image source={photos[1].image} style={{width,height:"100%"}} resizeMode="cover"/>
         </ScrollView>
-
+       
+      
           <View style={styles.trackercontainer}>
               {Array(3).fill(0).map((item, index) => (
                 <View key={index} style={styles.pagetracker} />
               ))}
           </View>
-
+    
           <Carousel title="Albums" photos={photos.splice(0, 6)}/>
-          <Carousel title="People" photos={photos.splice(3, 6)}/>
-          <Carousel title="Featured" photos={photos.splice(6, 9)}/>
-
+          <Carousel title="People" photos={photos.splice(3, 6)} />
+          {/* <Carousel title="Featured" photos={photos.splice(6, 9)}/> */}
+       
       </ScrollView>
+
+         <View style={styles.containercamera}>
+            <View style={styles.camerabutton}>
+             <Link href="./camera" asChild>
+              <Pressable>
+                <Text style={styles.buttonText}><Entypo name="camera" size={24} color="black" /></Text>
+              </Pressable>
+             </Link>
+              
+
+            </View>
+          </View>
+
     </View>
   );
 }  
