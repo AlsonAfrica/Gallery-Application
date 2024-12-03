@@ -23,9 +23,9 @@ export default function App() {
           placeholder="Search"
           placeholderTextColor="#aaa"
         />
-        <Link href='./map.js'>
+        <Link href='./map' asChild>
           <Pressable>
-            <Text><Feather name="map" size={24} color="black" /></Text>
+            <Feather name="map" size={24} color="black" />
           </Pressable>
         </Link>
         
