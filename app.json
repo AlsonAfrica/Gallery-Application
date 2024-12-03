@@ -34,6 +34,12 @@
           "microphonePermission": "Allow galleryApplication to access your microphone",
           "recordAudioAndroid": true
         }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow galleryApplication to use your location."
+        }
       ]
     ]
   }

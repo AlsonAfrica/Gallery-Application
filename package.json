@@ -23,7 +23,8 @@
     "react-native-web": "~0.19.13",
     "react-native-reanimated": "~3.16.1",
     "react-native-maps": "1.18.0",
-    "expo-camera": "~16.0.8"
+    "expo-camera": "~16.0.8",
+    "expo-location": "~18.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
